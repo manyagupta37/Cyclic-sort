@@ -1,0 +1,40 @@
+class Solution {
+    public void main(String[]args)
+    {
+        int []nums={1,3,4,2,2};
+        int res=findDuplicate(nums);
+        System.out.println(res);
+    }
+    public int findDuplicate(int[] nums) {
+      int i=0;
+        while(i<nums.length)
+        {
+            if(nums[i]!=i+1)
+            {
+            int correct=nums[i]-1;
+            if(nums[i]!=nums[correct])
+            {
+                swap(nums,i,correct);
+            }
+            else
+            {
+                return nums[i];
+            }
+            
+        }
+        else {
+                i++;
+            }
+        
+        
+    }
+    return -1;
+    }
+    public void swap(int []nums,int f,int s)
+    {
+        int temp=nums[s];
+        nums[s]=nums[f];
+        nums[f]=temp;
+    }  
+    
+}
